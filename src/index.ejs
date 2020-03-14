@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>React & Webpack</title>
+    </head>
+    <body>
+    </div>
+        <div id="1234"></div>
+        <script>
+            var opt = {
+                host: '10.0.0.14',
+                port: 2346,
+                url: 'http://deploy-notify.utools.club/home/index/scan',
+                queryStr: 'project_id=1',
+                scannedCallback:function(){
+                    location.href = 'http://www.baidu.com';
+                }
+            };
+            window.qrscanner("1234", opt);
+        </script>
+    </body>
+</html>
