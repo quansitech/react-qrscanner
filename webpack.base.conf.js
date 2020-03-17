@@ -3,10 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/app.js',
     output: {
-        filename: 'index.js',
-        path: path.join(__dirname, 'lib')
+        filename: 'bundle.js',
+        path: path.join(__dirname, 'dist')
     },
     module: {
         rules: [
@@ -23,12 +23,18 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            inject: 'head',
             template: path.join(__dirname, 'src', 'index.ejs')
         }),
         new CleanWebpackPlugin()
     ],
     optimization:{
         usedExports: false
-    }
+    },
+    // externals:{
+    //     "@ant-design/icons": "ant-design/icons",
+    //     react: "react",
+    //     "react-dom": "react-dom",
+    //     uuid: "uuid",
+    //     "qrcode.react": "qrcode.react"
+    // }
 };
