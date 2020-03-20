@@ -10,9 +10,8 @@ import ReactDOM from 'react-dom';
 import  { QrcodeScanner } from "@quansitech/react-qrscanner";
 
 let defaultOpt = {
-    host: '192.168.31.222', //websocket host 必填
-    port: 2346, //websocket 端口 必填
-    url: 'http://deploy-notify.utools.club/home/index/scan',  //二维码的地址，会自动在后面附上token 必填
+    websocket: 'ws://192.168.31.222:2346', //必填 websocket地址
+    url: 'http://www.test.com/home/index/scan',  //二维码的地址，会自动在后面附上token 必填
     queryStr: 'project_id=1', //根据业务需要可在这里附加必须的参数 选填
     size: 128, //二维码的大小 选填 默认128
     bgColor: '#FFFF44', //二维码背景颜色 选填
@@ -31,7 +30,7 @@ let defaultOpt = {
         document.getElementById('1234').appendChild(span);
     }
 };
-ReactDOM.render(<QrcodeScanner url={defaultOpt.url} port={defaultOpt.port} host={defaultOpt.host} 
+ReactDOM.render(<QrcodeScanner url={defaultOpt.url} websocket={defaultOpt.websocket} 
     queryStr={defaultOpt.queryStr} size={defaultOpt.size} scannedRenderText={defaultOpt.scannedRenderText}
     bgColor={defaultOpt.bgColor} fgColor={defaultOpt.fgColor} imageSettings={defaultOpt.imageSettings}
     scannedCallback={defaultOpt.scannedCallback} scannedRender={defaultOpt.scannedRender} />, 

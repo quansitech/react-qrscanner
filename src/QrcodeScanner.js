@@ -57,7 +57,7 @@ class QrcodeScanner extends React.Component{
     }
 
     connect = () => {
-        let url = 'ws://' + this.props.host + ':' + this.props.port;
+        let url = this.props.websocket;
         this.socket = new WebSocket(url);
         const that = this;
         this.socket.addEventListener('open', function (event) {
