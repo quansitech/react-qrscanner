@@ -7,7 +7,7 @@ npm i @quansitech/react-qrscanner
 ```js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import  { QrcodeScanner } from "@quansitech/react-qrscanner";
+import  { QrcodeScanner, Util } from "@quansitech/react-qrscanner";
 
 let defaultOpt = {
     websocket: 'ws://192.168.31.222:2346', //必填 websocket地址
@@ -35,5 +35,23 @@ ReactDOM.render(<QrcodeScanner url={defaultOpt.url} websocket={defaultOpt.websoc
     bgColor={defaultOpt.bgColor} fgColor={defaultOpt.fgColor} imageSettings={defaultOpt.imageSettings}
     scannedCallback={defaultOpt.scannedCallback} scannedRender={defaultOpt.scannedRender} />, 
     document.getElementById("1234"));
+
+
+
+
+//扫码调用
+const util = new Util();
+
+let psn = "ws://192.168.31.222:2346";  //websocket地址
+let token = "####-####-####"; //二维码生成的token
+let callback = function(status, error){   //扫码回调 status = 1表示扫码成功  0表示二维码失效  error返回错误信息
+    if(status == 1){
+        alert('success');
+    }
+    else{
+        alert(error);
+    }
+}
+util.scan(psn, token, callback);
 ```
 
