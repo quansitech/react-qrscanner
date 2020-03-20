@@ -20,9 +20,7 @@ jobs:
         registry-url: 'https://registry.npmjs.org'
     - run: npm i
     - run: npm run babel
-    - uses: shawnbot/npm-publish-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # NOTE: use the NODE_ prefix instead of NPM_ here!
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+          token: ${{ secrets.NPM_AUTH_TOKEN }}
       
