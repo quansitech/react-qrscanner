@@ -1,7 +1,7 @@
 ## summary
 
 ## install
-npm i @quansitech/react-qrscanner
+npm i @quansitech/react-qrscanner 
 
 ## usage
 ```js
