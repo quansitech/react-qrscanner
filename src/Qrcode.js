@@ -11,6 +11,8 @@ class Qrcode extends React.Component{
 
         this.scannedText = this.props.scannedRenderText ? this.props.scannedRenderText : '已绑定';
         this.size = this.props.size ? this.props.size : 128;
+    
+        this.scannedRender = typeof this.props.scannedRender == 'undefined' ? true : this.props.scannedRender;
     }
 
     scan = () => {
@@ -32,16 +34,16 @@ class Qrcode extends React.Component{
         }
 
         let content = '';
-        if(this.state.scan && this.props.scannedRender){
-            content = <p style={{ color: "#5cb85c", fontWeight: "bold", fontSize: this.props.size / 8}}>{ this.scannedText }</p>;
+        if(this.state.scan && this.scannedRender){
+            content = <p style={{ color: "#5cb85c", fontWeight: "bold", fontSize: this.size / 8}}>{ this.scannedText }</p>;
         }
         else if(this.state.invalid){
-            content = <div onClick={this.props.refresh} style={{ width: this.props.size, height: this.props.size,
+            content = <div onClick={this.props.refresh} style={{ width: this.size, height: this.size,
                 position:'absolute', top :'0px',left: '50%',
                 backgroundColor: '#000', opacity:0.8,
-                marginLeft: -(this.props.size / 2), cursor:'pointer' }} >
-                <RedoOutlined style={{ color: 'white', paddingTop: '25%', fontSize: this.props.size / 4}} />
-                <p style={{ color: 'white', fontSize: this.props.size / 16 }}>已失效,点击刷新</p>
+                marginLeft: -(this.size / 2), cursor:'pointer' }} >
+                <RedoOutlined style={{ color: 'white', paddingTop: '25%', fontSize: this.size / 4}} />
+                <p style={{ color: 'white', fontSize: this.size / 16 }}>已失效,点击刷新</p>
             </div>;
         }
 

@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import  { QrcodeScanner } from "./index.js";
 
 let defaultOpt = {
-    websocket: 'ws://192.168.31.222:2346',
+    websocket: 'ws://10.0.0.14:2346',
     url: 'http://deploy-notify.utools.club/home/index/scan',
     queryStr: 'project_id=1',
-    size: 128,
+    size: 256,
     bgColor: '#FFFF44',
     fgColor: '#CC00FF',
     imageSettings: {
