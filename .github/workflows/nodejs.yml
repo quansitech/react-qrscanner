@@ -18,6 +18,8 @@ jobs:
       with:
         node-version: 12
         registry-url: 'https://registry.npmjs.org'
+    - run: npm i
+    - run: npm run babel
     - uses: shawnbot/npm-publish-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
