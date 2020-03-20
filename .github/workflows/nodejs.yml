@@ -20,6 +20,8 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: npm i
       - run: npm run babel
+    
+    steps:
       - id: publish
         uses: JS-DevTools/npm-publish@v1
         with:
