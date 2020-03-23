@@ -18,6 +18,10 @@ class QrcodeScanner extends React.Component{
 
     }
 
+    componentWillUnmount = () => {
+        this.socket.close();
+    }
+
     refresh = () => {
         this.setState({ token: uuidv4() }, () => {
             this.qrcode.current.valid();
