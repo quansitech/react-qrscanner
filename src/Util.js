@@ -1,14 +1,15 @@
 
 class Util{
 
-    scan = (psn, token, callback) => {
+    scan = (psn, token, callback, param = {}) => {
         const socket = new WebSocket(psn);
 
         socket.addEventListener('open', function (event) {
             var data = {
                 type: 'Scan',
                 data: {
-                    token: token
+                    token: token,
+                    param: param
                 }
             }
             socket.send(JSON.stringify(data));
