@@ -52,6 +52,7 @@ let callback = function(status, error){   //扫码回调 status = 1表示扫码�
         alert(error);
     }
 }
-util.scan(psn, token, callback);
+let param = { custom_id: '1234567' } //需要传递给后端业务代码处理的参数
+util.scan(psn, token, callback, param);
 ```
 

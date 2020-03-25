@@ -2,7 +2,7 @@
   "name": "@quansitech/react-qrscanner",
   "author": "tiderjian",
   "homepage": "https://github.com/quansitech/react-qrscanner",
-  "version": "v1.0.12",
+  "version": "v1.0.13",
   "main": "lib/index.js",
   "files": [
     "lib/*.js"
@@ -20,6 +20,7 @@
     "css-loader": "^3.2.0",
     "html-webpack-plugin": "^3.2.0",
     "style-loader": "^1.0.0",
+    "svg-inline-loader": "^0.8.2",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.9.0",
