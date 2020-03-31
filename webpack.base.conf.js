@@ -1,12 +1,19 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 
 module.exports = {
-    entry: './src/app.js',
+    entry: {
+        index: './src/index.js',
+        Qrcode: './src/Qrcode.js',
+        QrcodeScanner: './src/QrcodeScanner.js',
+        Util: './src/Util.js'
+    },
     output: {
-        filename: 'bundle.js',
-        path: path.join(__dirname, 'dist')
+        filename: '[name].js',
+        path: path.join(__dirname, 'dist'),
+        libraryTarget: 'commonjs2'
     },
     module: {
         rules: [
@@ -29,6 +36,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'src', 'index.ejs')
         }),
+        new CommonsChunkPlugin({
+            name: 'common',
+            chunks: ['index', 'Qrcode', 'QrcodeScanner', 'Util']
+          }),
         new CleanWebpackPlugin()
     ],
     optimization:{
