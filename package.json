@@ -2,10 +2,12 @@
   "name": "@quansitech/react-qrscanner",
   "author": "tiderjian",
   "homepage": "https://github.com/quansitech/react-qrscanner",
-  "version": "v1.1.0",
+  "version": "v1.2.0",
   "main": "lib/index.js",
+  "module": "es/index.js",
   "files": [
-    "lib/*.js"
+    "lib/*.js",
+    "es/*.js"
   ],
   "devDependencies": {
     "@babel/cli": "^7.8.4",
@@ -29,7 +31,8 @@
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.conf.js",
     "build": "webpack --config webpack.prod.conf.js",
-    "babel": "npx babel src --out-dir lib --ignore \"src/app.js\""
+    "babel": "npx babel src --out-dir lib --ignore \"src/app.js\" --config-file ./babel.config.json",
+    "babel-es": "npx babel src --out-dir es --ignore \"src/app.js\" --config-file ./babel.es.config.json"
   },
   "dependencies": {
     "@ant-design/icons": "^4.0.2",
